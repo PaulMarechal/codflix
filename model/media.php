@@ -93,7 +93,7 @@ class Media {
     // Open database connection
     $db   = init_db();
 
-    $req  = $db->prepare( "SELECT * FROM media WHERE title = ? ORDER BY release_date DESC" );
+    $req  = $db->prepare( "SELECT * FROM media WHERE type = 'film''" );
     $req->execute( array( '%' . $title . '%' ));
 
     // Close databse connection
@@ -101,6 +101,31 @@ class Media {
 
     return $req->fetchAll();
 
+  }
+
+  public static function displayFilm($title) {
+    // Open database connection
+    $db = init_db();
+
+    // Display all movies from media order by date 
+    $req = $db->prepare( "SELECT * FROM media WHERE type= 'film'");
+    $req->execute( array( '%' . $title . '%' ));
+
+    // Close database connection
+    return $req->fetchAll();
+  }
+
+  public static function displaySeries($title) {
+    // Open database connection
+    $db = init_db();
+
+    // Display all series from media order by date 
+    $req = $db->prepare(" SELECT * FROM media WHERE type='series'");
+    $req->execute( array( '%' . $title . '%' ));
+    $db = null;
+
+    // Close database connection
+    return $req->fetchAll();
   }
 
 }

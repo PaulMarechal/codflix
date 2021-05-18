@@ -49,7 +49,12 @@
 .media-list .item .summary {
     color: #fff;
     padding: 8px 20px;
+}
 
+.titre_film {
+    padding-left: 10px;
+    color:black;
+    background-color: rgb(233, 231, 231);
 }
 
 @media screen and (max-width: 768px) {

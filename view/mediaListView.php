@@ -13,16 +13,32 @@
     </div>
 </div>
 
+<h3 class="titre_film">Films</h3>
 <div class="media-list">
-    <?php foreach( $medias as $media ): ?>
-        <a class="item" href="index.php?media=<?= $media['id']; ?>">
+    <?php foreach( $films as $film ): ?>
+        <a class="item" href="index.php?media=<?= $film['id']; ?>">
             <div class="video">
                 <div>
                     <iframe allowfullscreen="" frameborder="0"
-                            src="<?= $media['trailer_url']; ?>" ></iframe>
+                            src="<?= $film['trailer_url']; ?>" ></iframe>
                 </div>
             </div>
-            <div class="title"><?= $media['title']; ?></div>
+            <div class="title"><?= $film['title_media']; ?></div>
+        </a>
+    <?php endforeach; ?>
+</div>
+
+<h3 class="titre_film">Séries</h3>
+<div class="media-list">
+    <?php foreach( $series as $serie ): ?>
+        <a class="item" href="index.php?media=<?= $serie['id']; ?>">
+            <div class="video">
+                <div>
+                    <iframe allowfullscreen="" frameborder="0"
+                            src="<?= $serie['trailer_url']; ?>" ></iframe>
+                </div>
+            </div>
+            <div class="title"><?= $serie['title_media']; ?></div>
         </a>
     <?php endforeach; ?>
 </div>
