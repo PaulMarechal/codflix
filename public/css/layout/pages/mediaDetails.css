@@ -1,0 +1,88 @@
+/**********
+* Home page rules
+**********/
+
+.media-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.media-details .item {
+    flex-basis: 100%;
+    margin: 4px;
+    background: #1f1f1f;
+    padding-bottom: 25px;
+}
+
+.media-details .item .video {
+    width: 100%;
+}
+
+.media-details .item .video iframe {
+    width: 100%;
+    height: 400px;
+}
+
+.media-details .item .title {
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 20px;
+    text-align: center;
+}
+.media-details .item .title:after {
+    content: "";
+    display: block;
+    width: 20px;
+    border-bottom: 1px solid var(--color-red);
+    margin: 10px auto 0 auto;
+}
+
+.media-details .item:hover {
+    text-decoration: none;
+}
+
+.media-details .item .summary {
+    color: #fff;
+    padding: 8px 20px;
+}
+
+.titre_film {
+    padding-left: 10px;
+    color:black;
+    background-color: rgb(233, 231, 231);
+}
+
+.item_serie{
+    margin: em auto 2em auto;
+}
+
+.card-text-resume{
+    text-align: justify; 
+    overflow: scroll; 
+    max-height: 7.5em;
+    margin-right:0.5em;
+    margin-left: 0.5em;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.card-text-date{
+    text-align: justify; 
+    overflow: scroll; 
+    max-height: 7.5em;
+    margin-right:0.5em;
+    margin-left: 0.5em;
+    text-decoration: none;
+    color: lightgray;
+    font-size: 13px;
+    margin-bottom: -1em;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .media-details .item {
+        flex-basis: 100%;
+    }
+}

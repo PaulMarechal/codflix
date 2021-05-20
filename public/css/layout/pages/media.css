@@ -5,16 +5,13 @@
 .media-list {
     display: flex;
     flex-wrap: wrap;
-
     margin-bottom: 40px;
 }
 
 .media-list .item {
     flex-basis: 24%;
     margin: 4px;
-
     background: #1f1f1f;
-
     padding-bottom: 25px;
 }
 
@@ -29,7 +26,6 @@
 .media-list .item .title {
     color: #fff;
     font-weight: bold;
-
     padding: 8px 20px;
     text-align: center;
 }
@@ -51,11 +47,12 @@
     padding: 8px 20px;
 }
 
-.titre_film {
+.titre_film, .titre_serie {
     padding-left: 10px;
     color:black;
     background-color: rgb(233, 231, 231);
 }
+
 
 @media screen and (max-width: 768px) {
     .media-list .item {

@@ -16,8 +16,8 @@ class Media {
   public function __construct( $media ) {
 
     $this->setId( isset( $media->id ) ? $media->id : null );
-    $this->setGenreId( $media->genre_id );
-    $this->setTitle( $media->title );
+    $this->setGenreId( isset( $media->genre_id ) ? $media->genre_id : null);
+    $this->setTitle( isset( $media->title ) ? $media->title : null);
   }
 
   /***************************
@@ -125,6 +125,43 @@ class Media {
     $db = null;
 
     // Close database connection
+    return $req->fetchAll();
+  }
+
+  public static function displayDetailFilm($id) {
+    // Open database connection
+    $db = init_db();
+
+    // Display informations about the selected film 
+    $req = $db->prepare("SELECT * FROM media WHERE id = ? ");
+    $req->execute( array( '%' . $title . '%' )); 
+
+    // Close database connection
+    return $req->fetch();
+  }
+
+  public static function getMediaById($id){
+      $db = init_db();
+
+      $req = $db->prepare("SELECT * FROM media where id = ? ");
+      $req->execute(array($id));
+      return $req->fetch();
+  }
+
+  public function getEpisodeBySaisonId($id){
+    $req = $db->prepare("SELECT e.* FROM episodes as e, saison as s
+                                       WHERE e.id_saison = s.id
+                                       AND s.id=?");
+    $req->execute(array($id));
+    return $req->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function getSaisonById($serie){
+    $db = init_db();
+    $req = $db->prepare("SELECT s.*, m.id as 'media'  FROM saison as s, media as m
+                                       WHERE s.id_media = m.id
+                                       AND s.id_media = ?");
+    $req->execute( array($serie));
     return $req->fetchAll();
   }
 

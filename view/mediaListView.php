@@ -13,10 +13,11 @@
     </div>
 </div>
 
+<!-- Affichage des films -->
 <h3 class="titre_film">Films</h3>
 <div class="media-list">
     <?php foreach( $films as $film ): ?>
-        <a class="item" href="index.php?media=<?= $film['id']; ?>">
+        <a class="item" href="index.php?media&<?= $film['type']; ?>=<?= $film['id']; ?>">
             <div class="video">
                 <div>
                     <iframe allowfullscreen="" frameborder="0"
@@ -28,10 +29,11 @@
     <?php endforeach; ?>
 </div>
 
-<h3 class="titre_film">Séries</h3>
+<!-- Affichage des series -->
+<h3 class="titre_serie">Séries</h3>
 <div class="media-list">
     <?php foreach( $series as $serie ): ?>
-        <a class="item" href="index.php?media=<?= $serie['id']; ?>">
+        <a class="item" href="index.php?media&<?= $serie['type']; ?>=<?= $serie['id']; ?>">
             <div class="video">
                 <div>
                     <iframe allowfullscreen="" frameborder="0"
@@ -40,6 +42,7 @@
             </div>
             <div class="title"><?= $serie['title_media']; ?></div>
         </a>
+        <div class="espace"></div>
     <?php endforeach; ?>
 </div>
 
