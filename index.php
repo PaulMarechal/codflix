@@ -5,10 +5,13 @@ require_once( 'controller/loginController.php' );
 require_once( 'controller/signupController.php' );
 require_once( 'controller/mediaController.php' );
 require_once( 'controller/detailsMediaController.php');
+require_once( 'controller/contactController.php' );
 
 /**************************
 * ----- HANDLE ACTION -----
 ***************************/
+
+$user_id = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : false;
 
 if ( isset( $_GET['action'] ) ):
 
@@ -43,13 +46,17 @@ if ( isset( $_GET['action'] ) ):
       else:
         mediaPage();
       endif;
-    
+    break;
+
+    case 'contact':
+      sendMail();
+    break;
 
   endswitch;
 
 else:
 
-  $user_id = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : false;
+
   $mediaFilm_id = isset($_GET['film']) ? $_GET['film'] : false;
   $mediaSerie_id = isset($_GET['series']) ? $_GET['series'] : false;
   if( $mediaFilm_id ):
